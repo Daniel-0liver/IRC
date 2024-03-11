@@ -123,8 +123,6 @@ void Server::processClientMessage(int clientFd, const std::string &rawMessage)
     std::istringstream iss(trimmedMessage);
     std::string command;
 
-    std::cout << "Raw Message: " << rawMessage << std::endl;
-
     if (!clientAuthenticated[clientFd])
     {
         while (iss >> command)

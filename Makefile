@@ -1,4 +1,5 @@
 NAME = ircserv
+
 CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
@@ -14,10 +15,10 @@ all: $(SOURCES) $(EXECUTABLE)
 SOURCES = Server.cpp Commands.cpp ProcessCmd.cpp Message.cpp main.cpp
 
 $(EXECUTABLE): $(OBJECTS) 
-	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@
 
 .cpp.o:
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)

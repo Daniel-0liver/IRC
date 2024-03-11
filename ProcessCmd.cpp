@@ -5,7 +5,7 @@ void Server::processCommand(int clientFd, const std::string& command) {
     std::string cmd;
     iss >> cmd;
 
-    std::cout << "Processing command: " << command << std::endl;
+    std::cout << "Processing command: " << cmd << std::endl;
     if (cmd == "NICK") {
         nickCmd(clientFd, command);
     } else if (cmd == "USER") {
@@ -19,8 +19,9 @@ void Server::processCommand(int clientFd, const std::string& command) {
             std::getline(iss, password);
             if (!password.empty() && password[0] == ' ') {
                 password.erase(0, 1);
-            }   
+            }
         }
+        std::cout << "Joining channel: " << channel << std::endl;
         joinChannel(clientFd, channel, password);
     } else if (cmd == "PRIVMSG") {
         std::string target;
