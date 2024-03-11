@@ -1,0 +1,8 @@
+rm -f Server.o Commands.o ProcessCmd.o Message.o main.o ircserv
+ircserv REMOVED
+c++ -Wall -Wextra -Werror  -g -fsanitize=address  -c Server.cpp -o Server.o
+c++ -Wall -Wextra -Werror  -g -fsanitize=address  -c Commands.cpp -o Commands.o
+c++ -Wall -Wextra -Werror  -g -fsanitize=address  -c ProcessCmd.cpp -o ProcessCmd.o
+c++ -Wall -Wextra -Werror  -g -fsanitize=address  -c Message.cpp -o Message.o
+c++ -Wall -Wextra -Werror  -g -fsanitize=address  -c main.cpp -o main.o
+c++  Server.o Commands.o ProcessCmd.o Message.o main.o -o ircserv
